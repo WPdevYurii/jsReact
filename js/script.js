@@ -21,19 +21,30 @@
 // console.log(personalMovieDB);
 
 // ОБЪЕКТЫ
-// const options =  {
-//     name: 'test',
-//     width: 1024,
-//     height: 1024,
-//     colors: {
-//         border: 'yellow',
-//         bg: 'red'
-//     },
+const options =  {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'yellow',
+        bg: 'red'
+    },
         // методы ынутри объекта
-//     makeTest: function() {
-//         console.log('test');
-//     }
-// };
+    // makeTest: function() {
+    //     console.log('test');
+    // },
+    // showAgeAndLangs: function(plan) {
+    //     const {age} = plan;
+    //     const {languages} = plan.skills;
+    //     let str = `Мне ${age} и я владею языками: `;
+
+    //     languages.forEach(function(lang) {
+    //         str += `${lang.toUpperCase()} `;
+    //     });
+
+    //     return str;
+    // }
+};
 
 // вызываем метод
 // options.makeTest();
@@ -48,18 +59,18 @@
 // console.log(options);
 
 // перебор элемент объекта
-// let counter = 0;
-// for (let key in options) {
-//     if(typeof(options[key]) === 'object') {
-//         for (let i in options[key]) {
-//             console.log(`inner option ${i} have value ${options[key] [i]}` );
-//             counter++;
-//         }
-//     } else {
-//         console.log(`option ${key} have value ${options[key]}` );
-//         counter++;    
-//     }
-// }
+let counter = 0;
+for (let key in options) {
+    if(typeof(options[key]) === 'object') {
+        for (let i in options[key]) {
+            console.log(`inner option ${i} have value ${options[key] [i]}` );
+            counter++;
+        }
+    } else {
+        console.log(`option ${key} have value ${options[key]}` );
+        counter++;    
+    }
+}
 
 // console.log(counter);
 
@@ -83,6 +94,37 @@ const arr = [1, 2, 3, 6, 8];
 //     console.log(arr[i]);
 // }
 
+// function standardizeStrings(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i].toLowerCase());
+//     }
+// }
+
+// function showFamily(arr) {
+//     let str = '';
+
+//     arr.length === 0 ? str = 'Семья пуста' : str = 'Семья состоит из: ';
+
+//     arr.forEach(member => {
+//         str += `${member} `
+//     });
+
+//     return str;
+// }
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof(str) !== 'string') {
+        return "Ошибка!";
+    }
+    // Самый оптимальный вариант решения
+    return str.split('').reverse().join('');
+}
+
+reverse(someString);
+
+
 // for (let value of arr) {
 //     console.log(value);
 // }
@@ -90,11 +132,162 @@ const arr = [1, 2, 3, 6, 8];
 // const str = prompt(", ");
 // разделить по запятой
 // const products = str.split(", ");
-const sort = arr.sort();
-console.log(sort);
+// const sort = arr.sort();
+// console.log(sort);
 
-function compareNum(a, b) {
-    return a - b;
-}
+// function compareNum(a, b) {
+//     return a - b;
+// }
 // склеить по звездочке
-// console.log(products.join("* "));
+// console.log(arr.join(", "));
+
+// function showFamily(arr) {
+    
+// }
+
+// let a = 5,
+//     b = a;
+
+// b = b + 5;
+
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a: 5,
+//     b: 1
+// }
+
+// const copy = obj;
+
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+// перебор массива
+// function copy(mainObj) {
+//     let objCopy = {};
+
+//     let key;
+//     for(key in mainObj) {
+//         objCopy[key] = mainObj [key];
+//     }
+
+//     return objCopy;
+// }
+
+// const numbers = {
+//     a: 2,
+//     b: 3,
+//     c: 17,
+//     d: {
+//         x: 7,
+//         y: 32
+//     }
+// };
+
+// const newNumbers = copy(numbers);
+
+// newNumbers.a = 21;
+
+// console.log(newNumbers);
+// console.log(numbers);
+
+const add = {
+    f: 17,
+    e: 20
+}
+
+// console.log(Object.assign(add, numbers));
+
+const clone = Object.assign({}, add);
+
+clone.d = 20;
+
+// console.log(add);
+// console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+// метод копирования массива
+const newArray = oldArray.slice();
+
+// метод объединения массива из нового стандарта
+const video = ['you', 'vimeo', 'rutube'],
+    blogs = ['wordpress', 'livejournal', 'blogger'],
+    internet = [...video, ...blogs, 'vk', 'facebook'];
+
+    console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [3, 8, 10];
+
+log(...num);
+
+const array = ["a", "b"];
+
+const newAarray = [...array];
+
+const q = {
+    one: 1,
+    two: 2
+};
+
+const newObj = {...q};
+
+
+// задание 10
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    }
+};
+
+function showProgrammingLangs(plan) {
+    let str = '';
+    const {programmingLangs} = plan.skills;
+    for (let key in programmingLangs) {
+        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+    }
+
+    return str;
+}
+
+function showExperienceCorrect(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+
+function showExperience(plan) {
+    let result = '';
+    for (let key in plan) {
+        if(typeof(plan[key]) === 'object') {
+            for (let i in plan[key]) {
+                 if(i === 'exp') {
+                    result = `${plan[key] [i]}`;
+                 } else {
+                     
+                 }
+                
+            }
+        } 
+    }
+
+    return result;
+}
+
+
+console.log(showExperience(personalPlanPeter));
+
