@@ -310,124 +310,162 @@
 
 // john.sayHello();
 
-const personalMovieDB = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: function() {
-        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-        }
-    },
-    remamberMyFilms: function() {
-        for (let i = 0; i < 2; i++) {
-            const a = prompt('Один из последних просмотренных фильмов', ''),
-                  b = prompt('На соклько оцените его?', '');
+// const personalMovieDB = {
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start: function() {
+//         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//         while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//             personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//         }
+//     },
+//     remamberMyFilms: function() {
+//         for (let i = 0; i < 2; i++) {
+//             const a = prompt('Один из последних просмотренных фильмов', ''),
+//                   b = prompt('На соклько оцените его?', '');
 
-            if (a != null && b!= null && a != '' && b != '' && a.length < 50) {
-                personalMovieDB.movies[a] = b;
-                console.log('done');
-            } else {
-                console.log('error');
-                i--;
-            }
-        }   
-    },
-    detectPersonalLevel: function() {
-        if (personalMovieDB.count < 10) {
-            console.log("Просмотрено довольно мало фильмов");
-        } else if (personalMovieDB.count >=10 && personalMovieDB.count < 30) {
-            console.log("Вы классический зритель");
-        } else if (personalMovieDB.count) {
-            console.log("Иы киноман");
-        } else {
-            console.log("Произошла ошибка");
-        }
-    },
-    showMyDB: function(hidden) {
-        if (!hidden) {
-            console.log(personalMovieDB);
-        }
-    },
-    toggleVisibleMyDB: function() {
-        if (personalMovieDB.privat) {
-            personalMovieDB.privat = false;
-        } else {
-            personalMovieDB.privat = true;
-        }
-    },
-    writeYourGenres: function() {
-        for (let i = 1; i <= 3; i++) {
-            let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+//             if (a != null && b!= null && a != '' && b != '' && a.length < 50) {
+//                 personalMovieDB.movies[a] = b;
+//                 console.log('done');
+//             } else {
+//                 console.log('error');
+//                 i--;
+//             }
+//         }   
+//     },
+//     detectPersonalLevel: function() {
+//         if (personalMovieDB.count < 10) {
+//             console.log("Просмотрено довольно мало фильмов");
+//         } else if (personalMovieDB.count >=10 && personalMovieDB.count < 30) {
+//             console.log("Вы классический зритель");
+//         } else if (personalMovieDB.count) {
+//             console.log("Иы киноман");
+//         } else {
+//             console.log("Произошла ошибка");
+//         }
+//     },
+//     showMyDB: function(hidden) {
+//         if (!hidden) {
+//             console.log(personalMovieDB);
+//         }
+//     },
+//     toggleVisibleMyDB: function() {
+//         if (personalMovieDB.privat) {
+//             personalMovieDB.privat = false;
+//         } else {
+//             personalMovieDB.privat = true;
+//         }
+//     },
+//     writeYourGenres: function() {
+//         for (let i = 1; i <= 3; i++) {
+//             let genre = prompt(`Ваш любимый жанр под номером ${i}`);
 
-            if (genre === '' || genre == null) {
-                console.log('Вы ввели некорректные данные или не ввели их вовсе');
-                i--;
-            } else {
-                personalMovieDB.genres[i - 1] = genre;
-            }
-        }
+//             if (genre === '' || genre == null) {
+//                 console.log('Вы ввели некорректные данные или не ввели их вовсе');
+//                 i--;
+//             } else {
+//                 personalMovieDB.genres[i - 1] = genre;
+//             }
+//         }
 
-        personalMovieDB.genres.forEach((item, i) => {
-            console.log(`Любимый жанр ${i + 1} - это ${item}`);
-        });
-    },
+//         personalMovieDB.genres.forEach((item, i) => {
+//             console.log(`Любимый жанр ${i + 1} - это ${item}`);
+//         });
+//     },
     
-}
+// }
 
 // TASK 13
-const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// }
+
+// function isBudgetEnough(data) {
+//     // высота магазинов
+//     let shopsHeight = data.height;
+//     // денег за кубический метр
+//     let moneyPer1m3 = data.moneyPer1m3;
+//     // бюджет
+//     let budget = data.budget;
+//     let totalMoney = 0;
+//     // высота и длинна всех магазов
+//     let shopsSum = 0;
+//     // всего м3 помещений 
+//     let totalm3 = 0;
+//     for (const shop of data.shops) {
+//         shopsSum += shop.length + shop.width;
+//     }
+
+//     totalm3 = shopsSum * shopsHeight;
+//     totalMoney = totalm3 * moneyPer1m3
+
+//     if (budget >= totalMoney) {
+//         return ('Бюджета недостаточно');
+//         console.log();
+//     } else {
+//         return ('Бюджета достаточно');
+//     }
+// }
+
+// isBudgetEnough(shoppingMallData);
+
+// динамическая типизация
+
+// to number
+
+// 1)
+console.log(typeof(Number('4')));
+
+// 2)
+console.log(typeof(+'5'));
+
+// 3)
+console.log(typeof(parseInt("15px", 10)));
+
+let answ = +prompt("Hello", "");
+
+// to bolean
+
+// 0, '', null, undefined, NaN;
+
+// 1)
+let switcher = null;
+
+if (switcher) {
+    console.log('Working...');
 }
 
-function isBudgetEnough(data) {
-    // высота магазинов
-    let shopsHeight = data.height;
-    // денег за кубический метр
-    let moneyPer1m3 = data.moneyPer1m3;
-    // бюджет
-    let budget = data.budget;
-    let totalMoney = 0;
-    // высота и длинна всех магазов
-    let shopsSum = 0;
-    // всего м3 помещений 
-    let totalm3 = 0;
-    for (const shop of data.shops) {
-        shopsSum += shop.length + shop.width;
-    }
+switcher = 1;
 
-    totalm3 = shopsSum * shopsHeight;
-    totalMoney = totalm3 * moneyPer1m3
-
-    if (budget >= totalMoney) {
-        return ('Бюджета недостаточно');
-        console.log();
-    } else {
-        return ('Бюджета достаточно');
-    }
+if (switcher) {
+    console.log('Working ...');
 }
 
-isBudgetEnough(shoppingMallData);
+// 2)
+console.log(typeof(Boolean('4')));
+
+// 3)
+console.log(typeof(!!"44444"));
