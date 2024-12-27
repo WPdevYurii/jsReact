@@ -436,36 +436,61 @@
 
 // to number
 
-// 1)
-console.log(typeof(Number('4')));
+// // 1)
+// console.log(typeof(Number('4')));
 
-// 2)
-console.log(typeof(+'5'));
+// // 2)
+// console.log(typeof(+'5'));
 
-// 3)
-console.log(typeof(parseInt("15px", 10)));
+// // 3)
+// console.log(typeof(parseInt("15px", 10)));
 
-let answ = +prompt("Hello", "");
+// let answ = +prompt("Hello", "");
 
-// to bolean
+// // to bolean
 
-// 0, '', null, undefined, NaN;
+// // 0, '', null, undefined, NaN;
 
-// 1)
-let switcher = null;
+// // 1)
+// let switcher = null;
 
-if (switcher) {
-    console.log('Working...');
-}
+// if (switcher) {
+//     console.log('Working...');
+// }
 
-switcher = 1;
+// switcher = 1;
 
-if (switcher) {
-    console.log('Working ...');
-}
+// if (switcher) {
+//     console.log('Working ...');
+// }
 
-// 2)
-console.log(typeof(Boolean('4')));
+// // 2)
+// console.log(typeof(Boolean('4')));
 
-// 3)
-console.log(typeof(!!"44444"));
+// // 3)
+// console.log(typeof(!!"44444"));
+
+// замыкание и лексическое окружение
+
+// let number = 5;
+
+// function logNumber() {
+//     console.log(number);
+// }
+
+// number = 6;
+
+// logNumber();
+
+// задачи на собеседование
+// let x = 5;
+// alert(x++);
+
+// let y = 1;
+// let x = y = 2;
+// alert(x);
+
+// console.log([] + 1 + 2);
+
+// alert('1'[0]);
+alert(null || 2 && 3 || 4);
