@@ -493,4 +493,58 @@
 // console.log([] + 1 + 2);
 
 // alert('1'[0]);
-alert(null || 2 && 3 || 4);
+// alert(null || 2 && 3 || 4);
+
+// && запинается на лжи
+// || запинается на правде
+// console.log(2 && 1 && null && 0 && undefined);
+
+const restorantData = {
+    menu: [
+        {
+            name: 'Salad Caesar',
+            price: '14$'
+        },
+        {
+            name: 'Pizza Diavola',
+            price: '9$'
+        },
+        {
+            name: 'Beefsteak',
+            price: '17$'
+        },
+        {
+            name: 'Napoleon',
+            price: '7$'
+        }
+    ],
+    waitors: [
+        {name: 'Alice', age: 22}, {name: 'John', age: 24}
+    ],
+    averageLunchPrice: '20$',
+    openNow: true
+};
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//     if (+fDish.price.slice(0, -1) + (sDish.price) > average) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+
+// console.log(isAverageLunchPriceTrue(restorantData.menu[3], restorantData.menu[1], restorantData.averageLunchPrice));
+
+function transferWaitors(data) {
+    const copy = Object.assign({}, data);
+
+    console.log(copy);
+
+    copy.waitors[0] = {name: 'Mike', age: 32};
+    copy.waitors.unshift({ name: 'Bob', age: 28 });
+
+    console.log(copy);
+    return copy;
+}
+
+transferWaitors(restorantData);
